@@ -9,7 +9,7 @@ You can deploy the sample web app on the Acorn SaaS Platform to test the Applica
 
 Let us have a close look at the Acornfile and see what is defined:
 
-- **Containers**: These containers will be deployed for running WordPress. We have two containers, one for WordPress and the other for Redis. We are setting the environment variables returned from the Amazon RDS for the WordPress container.
+- **Containers**: These containers will be deployed for running WordPress. We have two containers, one for WordPress and the other for MySQL. We are setting the environment variables returned from the Amazon RDS for the WordPress container.
 - **Services**: Acron services are external services your application can utilize. In this case, we use the [Amazon RDS service from the catalog](https://aws.amazon.com/rds/).
 
 
