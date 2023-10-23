@@ -1,0 +1,18 @@
+containers: wp: {
+	image: "wordpress:latest"
+	scale: 2
+	ports: publish: "80/http"
+	env: {
+		WORDPRESS_DB_HOST: "@{service.rds.address}"
+		WORDPRESS_DB_USER: "@{service.rds.secrets.admin.username}"
+		WORDPRESS_DB_PASSWORD: "@{service.rds.secrets.admin.password}"
+		WORDPRESS_DB_NAME: "@{service.rds.data.dbName}"
+	}
+}
+
+
+services: rds: {
+	image: "ghcr.io/acorn-io/aws/rds/serverless:v1.0.2"
+	serviceArgs: dbName: "wordpress"
+}
+
